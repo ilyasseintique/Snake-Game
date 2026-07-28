@@ -79,18 +79,19 @@ while(True):
         score.clear()
         score.write(f"Score : {scorenum} | High score : {highscore}", align="center", font=("Arial", 20, "normal"))
     #checking for body coll
-    for i in range(1,len(body)):
+    for i in range(0,len(body)):
         x_head = Head.xcor()
         y_head = Head.ycor()
         if(x_head == body[i].xcor() and y_head == body[i].ycor()):
             for elem in body:
                 elem.hideturtle()
-            body.clear()
             Head.direction = "stop"
             scorenum = 0
             Head.goto(0, 0)
             score.clear()
             score.write(f"Score : {scorenum} | High score : {highscore}", align="center", font=("Arial", 20, "normal"))
+            body.clear()
+            break
     #eating food
     if (Head.distance(food)<20):
         x = randint(-16, 16)*20
